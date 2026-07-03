@@ -301,9 +301,13 @@ Through this project, I learned:
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 TEAM MEMBERS
 
 **Kovuri Udaya Siva Kumar**
+**Gopi Devaraj**
+**Pandaraboina Krishnanjaneyulu**
+**Maddu Nikhil Chandrashekhar**
+**Thota Praveen Kumar**
 
 B.Tech – Computer Science and Engineering (Artificial Intelligence & Machine Learning)
 
