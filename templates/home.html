@@ -1,110 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Smart Lender</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Lender</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
+    body {
+      min-height: 100vh;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #122033;
+      background:
+        linear-gradient(rgba(10, 24, 38, 0.76), rgba(10, 24, 38, 0.58)),
+        url("https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80");
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Segoe UI,sans-serif;
-}
+    main {
+      width: min(760px, 100%);
+      color: #ffffff;
+    }
 
-body{
+    .panel {
+      background: rgba(255, 255, 255, 0.92);
+      color: #122033;
+      border-radius: 8px;
+      padding: 36px;
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.22);
+    }
 
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
+    h1 {
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      line-height: 1;
+      margin-bottom: 14px;
+      color: #0b4f6c;
+    }
 
-}
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #23708c;
+      margin-bottom: 22px;
+    }
 
-.container{
+    p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #3d4d5d;
+      margin-bottom: 28px;
+    }
 
-width:700px;
-background:white;
-padding:50px;
-border-radius:20px;
-text-align:center;
-box-shadow:0px 15px 30px rgba(0,0,0,.3);
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
 
-}
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 6px;
+      background: #0b4f6c;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 700;
+    }
 
-h1{
-
-font-size:42px;
-color:#1565c0;
-margin-bottom:20px;
-
-}
-
-h2{
-
-color:#555;
-
-}
-
-p{
-
-margin:30px 0;
-font-size:18px;
-line-height:1.8;
-color:#666;
-
-}
-
-button{
-
-background:#1565c0;
-color:white;
-padding:15px 45px;
-font-size:22px;
-border:none;
-border-radius:40px;
-cursor:pointer;
-transition:.4s;
-
-}
-
-button:hover{
-
-background:#0d47a1;
-transform:scale(1.05);
-
-}
-
-</style>
-
+    .note {
+      color: #536271;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="container">
-
-<h1>🏦 Smart Lender</h1>
-
-<h2>AI Powered Loan Approval Prediction</h2>
-
-<p>
-
-Predict whether a loan application will be Approved or Rejected
-using Machine Learning.
-
-Random Forest Classifier + Flask Web Application
-
-</p>
-
-<a href="/predict">
-
-<button>Start Prediction →</button>
-
-</a>
-
-</div>
-
+  <main>
+    <section class="panel">
+      <h1>Smart Lender</h1>
+      <h2>Machine learning based loan approval prediction</h2>
+      <p>
+        Smart Lender evaluates applicant income, co-applicant income, loan amount,
+        loan term, credit history, employment, education, marital status, dependents,
+        and property area to estimate whether a loan application is likely to be approved.
+      </p>
+      <div class="actions">
+        <a href="/predict">Start Prediction</a>
+        <p class="note">Flask application integrated with the trained deployment model.</p>
+      </div>
+    </section>
+  </main>
 </body>
-
 </html>

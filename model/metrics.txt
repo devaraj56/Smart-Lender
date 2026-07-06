@@ -1,0 +1,8 @@
+Smart Lender Model Metrics
+Best model: Random Forest
+Test accuracy: 0.8402
+Cross-validation scores: 0.7396, 0.7692, 0.8757, 0.8521, 0.9107
+Average cross-validation accuracy: 0.8295
+Model artifact: rdf.pkl
+Scaler artifact: scaler.pkl
+Encoders artifact: encoders.pkl

@@ -1,135 +1,241 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Prediction</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<title>Loan Prediction</title>
+    body {
+      min-height: 100vh;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #122033;
+      background: #eef4f7;
+      padding: 28px;
+    }
 
-<style>
+    main {
+      width: min(920px, 100%);
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 16px 38px rgba(18, 32, 51, 0.14);
+      overflow: hidden;
+    }
 
-body{
+    header {
+      background: #0b4f6c;
+      color: #ffffff;
+      padding: 28px 32px;
+    }
 
-background:#edf2f7;
-font-family:Segoe UI;
+    h1 {
+      font-size: 1.9rem;
+      margin-bottom: 8px;
+    }
 
-}
+    header p {
+      color: #d8edf4;
+      line-height: 1.5;
+    }
 
-.container{
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      padding: 32px;
+    }
 
-width:700px;
-margin:auto;
-margin-top:30px;
-background:white;
-padding:35px;
-border-radius:15px;
-box-shadow:0px 10px 25px rgba(0,0,0,.2);
+    label {
+      display: grid;
+      gap: 8px;
+      color: #314251;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
 
-}
+    input,
+    select {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid #c9d6df;
+      border-radius: 6px;
+      padding: 10px 12px;
+      color: #122033;
+      font-size: 1rem;
+      background: #ffffff;
+    }
 
-h2{
+    input:focus,
+    select:focus {
+      outline: 3px solid rgba(11, 79, 108, 0.18);
+      border-color: #0b4f6c;
+    }
 
-text-align:center;
-color:#1565c0;
-margin-bottom:30px;
+    .full {
+      grid-column: 1 / -1;
+    }
 
-}
+    .error {
+      grid-column: 1 / -1;
+      padding: 12px 14px;
+      border-radius: 6px;
+      background: #fdecec;
+      color: #9a281f;
+      font-weight: 700;
+    }
 
-input,select{
+    .actions {
+      grid-column: 1 / -1;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      padding-top: 6px;
+    }
 
-width:100%;
-padding:12px;
-margin-top:10px;
-margin-bottom:18px;
-font-size:16px;
-border:1px solid #ccc;
-border-radius:8px;
+    button,
+    a {
+      min-height: 46px;
+      border: 0;
+      border-radius: 6px;
+      padding: 0 22px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-}
+    button {
+      background: #0b4f6c;
+      color: #ffffff;
+    }
 
-button{
+    a {
+      background: #e3edf2;
+      color: #0b4f6c;
+    }
 
-width:100%;
-padding:15px;
-font-size:20px;
-background:#1565c0;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-transition:.4s;
+    @media (max-width: 720px) {
+      body {
+        padding: 16px;
+      }
 
-}
+      form {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
 
-button:hover{
-
-background:#0d47a1;
-
-}
-
-</style>
-
+      header {
+        padding: 24px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <main>
+    <header>
+      <h1>Loan Prediction Form</h1>
+      <p>Enter applicant details exactly as required by the trained Smart Lender model.</p>
+    </header>
 
-<div class="container">
+    <form action="/submit" method="POST">
+      {% if error %}
+        <div class="error">{{ error }}</div>
+      {% endif %}
 
-<h2>Loan Prediction Form</h2>
+      <label>
+        Gender
+        <select name="Gender" required>
+          <option value="1">Male</option>
+          <option value="0">Female</option>
+        </select>
+      </label>
 
-<form action="/submit" method="POST">
+      <label>
+        Married
+        <select name="Married" required>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </label>
 
-<select name="Gender">
-<option value="1">Male</option>
-<option value="0">Female</option>
-</select>
+      <label>
+        Dependents
+        <select name="Dependents" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3+</option>
+        </select>
+      </label>
 
-<select name="Married">
-<option value="1">Married</option>
-<option value="0">Not Married</option>
-</select>
+      <label>
+        Education
+        <select name="Education" required>
+          <option value="0">Graduate</option>
+          <option value="1">Not Graduate</option>
+        </select>
+      </label>
 
-<input type="number" name="Dependents" placeholder="Dependents (0-3)" required>
+      <label>
+        Self Employed
+        <select name="Self_Employed" required>
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </label>
 
-<select name="Education">
-<option value="0">Graduate</option>
-<option value="1">Not Graduate</option>
-</select>
+      <label>
+        Applicant Income
+        <input type="number" name="ApplicantIncome" min="0" step="1" placeholder="Example: 5849" required>
+      </label>
 
-<select name="Self_Employed">
-<option value="1">Self Employed</option>
-<option value="0">Not Self Employed</option>
-</select>
+      <label>
+        Co-applicant Income
+        <input type="number" name="CoapplicantIncome" min="0" step="1" placeholder="Example: 1500" required>
+      </label>
 
-<input type="number" name="ApplicantIncome" placeholder="Applicant Income">
+      <label>
+        Loan Amount
+        <input type="number" name="LoanAmount" min="1" step="1" placeholder="Amount in thousands" required>
+      </label>
 
-<input type="number" name="CoapplicantIncome" placeholder="Coapplicant Income">
+      <label>
+        Loan Amount Term
+        <input type="number" name="Loan_Amount_Term" min="1" step="1" value="360" required>
+      </label>
 
-<input type="number" name="LoanAmount" placeholder="Loan Amount">
+      <label>
+        Credit History
+        <select name="Credit_History" required>
+          <option value="1">Meets credit guidelines</option>
+          <option value="0">Does not meet credit guidelines</option>
+        </select>
+      </label>
 
-<input type="number" name="Loan_Amount_Term" placeholder="Loan Term (360)">
+      <label>
+        Property Area
+        <select name="Property_Area" required>
+          <option value="0">Rural</option>
+          <option value="1">Semiurban</option>
+          <option value="2">Urban</option>
+        </select>
+      </label>
 
-<select name="Credit_History">
-<option value="1">Good Credit History</option>
-<option value="0">Bad Credit History</option>
-</select>
-
-<select name="Property_Area">
-
-<option value="0">Rural</option>
-<option value="1">Semi Urban</option>
-<option value="2">Urban</option>
-
-</select>
-
-<button>
-
-Predict Loan Status
-
-</button>
-
-</form>
-
-</div>
-
+      <div class="actions">
+        <button type="submit">Predict Loan Status</button>
+        <a href="/">Back Home</a>
+      </div>
+    </form>
+  </main>
 </body>
-
 </html>

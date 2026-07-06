@@ -1,8 +1,6 @@
-Flask
-numpy
-pandas
-scikit-learn
-matplotlib
-joblib
-imbalanced-learn
-xgboost
+Flask>=3.0
+imbalanced-learn>=0.14
+matplotlib>=3.8
+numpy>=2.0
+pandas>=2.0
+scikit-learn>=1.5

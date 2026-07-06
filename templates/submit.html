@@ -1,98 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediction Result</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<title>Prediction Result</title>
+    body {
+      min-height: 100vh;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #122033;
+      background: #eef4f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
 
-<style>
+    main {
+      width: min(620px, 100%);
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 36px;
+      text-align: center;
+      box-shadow: 0 16px 38px rgba(18, 32, 51, 0.14);
+    }
 
-body{
+    h1 {
+      color: #0b4f6c;
+      margin-bottom: 22px;
+      font-size: 2rem;
+    }
 
-background:linear-gradient(135deg,#1c92d2,#f2fcfe);
-font-family:Segoe UI;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+    .result {
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 26px;
+      font-size: clamp(1.8rem, 6vw, 2.6rem);
+      font-weight: 800;
+    }
 
-}
+    .approved {
+      color: #17633a;
+      background: #e9f7ef;
+    }
 
-.card{
+    .rejected {
+      color: #9a281f;
+      background: #fdecec;
+    }
 
-width:600px;
-background:white;
-padding:40px;
-text-align:center;
-border-radius:20px;
-box-shadow:0px 10px 30px rgba(0,0,0,.2);
+    .actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-}
+    a {
+      min-height: 46px;
+      border-radius: 6px;
+      padding: 0 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
 
-h1{
+    .primary {
+      background: #0b4f6c;
+      color: #ffffff;
+    }
 
-color:#1565c0;
-margin-bottom:30px;
-
-}
-
-.result{
-
-font-size:35px;
-font-weight:bold;
-margin:30px;
-color:#27ae60;
-
-}
-
-button{
-
-padding:14px 35px;
-margin:10px;
-font-size:18px;
-border:none;
-background:#1565c0;
-color:white;
-border-radius:8px;
-cursor:pointer;
-
-}
-
-button:hover{
-
-background:#0d47a1;
-
-}
-
-</style>
-
+    .secondary {
+      background: #e3edf2;
+      color: #0b4f6c;
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="card">
-
-<h1>Prediction Result</h1>
-
-<div class="result">
-
-{{ prediction }}
-
-</div>
-
-<a href="/predict">
-
-<button>Predict Again</button>
-
-</a>
-
-<a href="/">
-
-<button>Home</button>
-
-</a>
-
-</div>
-
+  <main>
+    <h1>Prediction Result</h1>
+    <div class="result {{ status }}">
+      {{ prediction }}
+    </div>
+    <div class="actions">
+      <a class="primary" href="/predict">Predict Again</a>
+      <a class="secondary" href="/">Home</a>
+    </div>
+  </main>
 </body>
-
 </html>
