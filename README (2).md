@@ -369,12 +369,16 @@ This project demonstrates:
 
 ## Author
 
-Kovuri Udaya Siva Kumar
+->Kovuri Udaya Siva Kumar(238x1a4246)
+->Gopi Devaraj(238x1a4256)
+->Pandaraboina Krishnanjaneyulu (238x1a4281)
+->Maddu Nikhil Chandrashekhar (238x1a42f8)
+->Thota Praveen Kumar(238x1a42i3)
 
 B.Tech, Computer Science and Engineering  
 Artificial Intelligence and Machine Learning
 
-GitHub: [devaraj56](https://github.com/devaraj56)
+GitHub: [devaraj56](https://github.com/devaraj56/Smart-Lender/)
 
 ## License
 
